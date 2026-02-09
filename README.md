@@ -13,7 +13,9 @@ json
 }
 
 Примените миграции:
+Для этого, если установлен пакет NuGet можно открыть с помощью Вид -> Другие окна -> Консоль диспетчера пакетов
 dotnet ef migrations add InitialCreate
+
 dotnet ef database update
 
 Запустите приложение:
