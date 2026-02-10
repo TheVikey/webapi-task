@@ -1,4 +1,4 @@
-﻿namespace webapi_task.Applications.Services
+﻿namespace webapi_task.Applications.Interfaces
 {
     public interface IFileProcessingService
     {

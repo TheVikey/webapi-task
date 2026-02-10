@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace webapi_task.Applications;
+namespace webapi_task.Applications.Services;
 public interface IStatisticsCalculator
 {
     Statistics CalculateStatistics(IEnumerable<Infrastructure.Value> values);

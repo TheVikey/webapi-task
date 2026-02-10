@@ -1,6 +1,6 @@
 ﻿using webapi_task.Infrastructure;
 
-namespace webapi_task.Applications.Services;
+namespace webapi_task.Applications.Interfaces;
 public interface IFileQueryService
 {
     Task<IEnumerable<Result>> GetFilteredResultsAsync(

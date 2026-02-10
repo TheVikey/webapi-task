@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using webapi_task.Applications.Services;
+using webapi_task.Applications.Interfaces;
 using webapi_task.Infrastructure;
 
 namespace webapi_task.Presentation.Controllers;

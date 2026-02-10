@@ -1,4 +1,5 @@
-﻿using webapi_task.Infrastructure;
+﻿using webapi_task.Applications.Interfaces;
+using webapi_task.Infrastructure;
 using webapi_task.Infrastructure.Interfaces;
 
 namespace webapi_task.Applications.Services;
@@ -30,10 +31,10 @@ public class FileProcessingService : IFileProcessingService
 
             try
             {
-                // 1. Парсим CSV файл
+                // Парсим CSV файл
                 var values = await _csvParser.ParseAsync(fileStream, fileName);
 
-                // 2. Валидируем данные
+                // Валидируем данные
                 var validationResult = _validator.Validate(values);
                 if (!validationResult.IsValid)
                 {
@@ -41,16 +42,16 @@ public class FileProcessingService : IFileProcessingService
                     return ProcessingResult.Failure(validationResult.Errors);
                 }
 
-                // 3. Только после успешной валидации удаляем существующие записи
+                // Только после успешной валидации удаляем существующие записи
                 await DeleteExistingRecordsAsync(fileName);
 
-                // 4. Сохраняем значения в БД
+                // Сохраняем значения в БД
                 await _unitOfWork.Values.AddRangeAsync(values);
 
-                // 5. Вычисляем статистику
+                // Вычисляем статистику
                 var statistics = _calculator.CalculateStatistics(values);
 
-                // 6. Создаем и сохраняем результат
+                // Создаем и сохраняем результат
                 var result = new Result
                 {
                     FileName = fileName,
@@ -66,7 +67,7 @@ public class FileProcessingService : IFileProcessingService
 
                 await _unitOfWork.Results.AddAsync(result);
 
-                // 7. Сохраняем изменения и коммитим транзакцию
+                // Сохраняем изменения и коммитим транзакцию
                 await _unitOfWork.SaveChangesAsync();
                 await _unitOfWork.CommitTransactionAsync();
 

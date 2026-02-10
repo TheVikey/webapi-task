@@ -1,4 +1,4 @@
-﻿namespace webapi_task.Applications
+﻿namespace webapi_task.Applications.Services
 {
     public interface IFileValidator
     {

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using webapi_task.Applications;
+using webapi_task.Applications.Interfaces;
 using webapi_task.Applications.Services;
 using webapi_task.Infrastructure;
 using webapi_task.Infrastructure.Implementations;

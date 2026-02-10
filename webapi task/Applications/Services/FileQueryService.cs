@@ -1,4 +1,5 @@
-﻿using webapi_task.Infrastructure;
+﻿using webapi_task.Applications.Interfaces;
+using webapi_task.Infrastructure;
 using webapi_task.Infrastructure.Interfaces;
 
 namespace webapi_task.Applications.Services;
